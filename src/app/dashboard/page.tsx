@@ -19,7 +19,6 @@ import {
   Repeat,
   Folder,
 } from "lucide-react";
-import Link from "next/link";
 
 export default function Dashboard() {
   const [search, setSearch] = useState("");
@@ -101,14 +100,14 @@ export default function Dashboard() {
           <p className="text-2xl">SHADED GODDESS</p>
         </div>
 
-        {menuItems.map((item) => {
+        {menuItems.map((item: any, idx: number) => {
           const Icon = item.icon;
           const isActive = activeMenu === item.label;
 
           return (
             // <Link href={item.link || "#"} key={item.label}>
             <div
-              // key={item.label}
+              key={idx}
               onClick={() => setActiveMenu(item.label)}
               className={`flex items-center space-x-3 py-1 h-[47px] cursor-pointer rounded-lg w-full justify-start pl-2 transition-all duration-300 ease-in-out ${
                 isActive
@@ -156,11 +155,11 @@ export default function Dashboard() {
           </TableHeader>
           <TableBody>
             {filtered.map((o, idx) => (
-              <TableRow className="border-t-0 border-b border-gray-700">
-                <TableCell className="border-0">{o.name}</TableCell>
-                <TableCell>{o.email}</TableCell>
-                <TableCell>{o.sunglasses}</TableCell>
-                <TableCell>{o.serial}</TableCell>
+              <TableRow key={idx} className="border-t-0 border-b border-gray-700">
+                <TableCell key={idx} className="border-0">{o.name}</TableCell>
+                <TableCell key={idx}>{o.email}</TableCell>
+                <TableCell key={idx}>{o.sunglasses}</TableCell>
+                <TableCell key={idx}>{o.serial}</TableCell>
               </TableRow>
             ))}
           </TableBody>

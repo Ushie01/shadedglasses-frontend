@@ -35,9 +35,12 @@ export default function RegisterPage() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (data: any) => {
+  // Define the type based on our schema
+  type RegisterFormData = z.infer<typeof formSchema>;
+
+  const onSubmit = (data: RegisterFormData) => {
     console.log("Form Data:", data);
-    alert("Certificate generated successfully!");
+    alert("Registration successful!");
     router.push("/sign-in");
   };
 

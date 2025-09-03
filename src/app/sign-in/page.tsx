@@ -25,11 +25,14 @@ export default function SignInPage() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (data: any) => {
+  // Define the type based on our schema
+  type SignInFormData = z.infer<typeof formSchema>;
+
+  const onSubmit = (data: SignInFormData) => {
     console.log("Sign-in Data:", data);
     // Here you would typically authenticate the user
     // For now, we'll just navigate to the dashboard
-    router.push("/certificate-download");
+    router.push("/dashboard");
   };
 
   return (
