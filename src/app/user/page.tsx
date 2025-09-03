@@ -1,8 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Dashboard from "./pages/dashboard";
-import Owner from "./pages/owner";
+import Dashboard from "./dashboard/page";
+import Owner from "./owner/page";
+import Sunglasses from "./sunglasses/page";
 
 export default function User() {
   const pathname = usePathname();
@@ -11,6 +12,10 @@ export default function User() {
     <div className="">
       <div>{pathname?.includes("Dashboard") && <Dashboard />}</div>
       <div>{pathname?.includes("Owner") && <Owner />}</div>
+      <div>{pathname?.includes("Sunglasses") && <Sunglasses />}</div>
+      <div>{pathname?.includes("Sunglasses") && <Sunglasses />}</div>
+      <div>{pathname?.includes("Sunglasses") && <Sunglasses />}</div>
+      <div>{pathname?.includes("Sunglasses") && <Sunglasses />}</div>
     </div>
   );
 }
