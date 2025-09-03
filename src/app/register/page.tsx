@@ -99,9 +99,10 @@ export default function RegisterPage() {
               className="w-full rounded-md bg-black border border-gray-700 px-4 py-3 text-gray-400 focus:outline-none focus:border-[#d4af37] transition"
             >
               <option value="">Sunglasses Model</option>
-              <option value="classic">Classic</option>
-              <option value="aviator">Aviator</option>
-              <option value="sport">Sport</option>
+              <option value="zhandra">Zhandra</option>
+              <option value="aphrodite">Aphrodite</option>
+              <option value="callisto">Callisto</option>
+              <option value="elysian">Elysian</option>
             </select>
             {errors.model && (
               <p className="text-red-500 text-sm mt-1">
