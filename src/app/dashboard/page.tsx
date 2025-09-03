@@ -19,6 +19,7 @@ import {
   Repeat,
   Folder,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Dashboard() {
   const [search, setSearch] = useState("");
@@ -68,7 +69,7 @@ export default function Dashboard() {
     {
       label: "Owners",
       icon: User,
-      link: "/owners",
+      link: "/home",
     },
     {
       label: "Sunglasses",
@@ -78,7 +79,7 @@ export default function Dashboard() {
     {
       label: "Certificates",
       icon: FileText,
-      link: "/certificates",
+      link: "/certificate-download",
     },
     {
       label: "Transfers",
@@ -105,23 +106,23 @@ export default function Dashboard() {
           const isActive = activeMenu === item.label;
 
           return (
-            // <Link href={item.link || "#"} key={item.label}>
-            <div
-              key={idx}
-              onClick={() => setActiveMenu(item.label)}
-              className={`flex items-center space-x-3 py-1 h-[47px] cursor-pointer rounded-lg w-full justify-start pl-2 transition-all duration-300 ease-in-out ${
-                isActive
-                  ? "bg-[#d4af37] text-black font-semibold transform"
-                  : "hover:bg-gray-400 hover:transform hover:translate-x-2 text-gray-200"
-              }`}
-            >
-              {isActive && (
-                <div className="h-full w-1 rounded-full bg-black"></div>
-              )}
-              <Icon size={20} />
-              <span className="text-[16px]">{item.label}</span>
-            </div>
-            // </Link>
+            <Link href={item.link || "#"} key={item.label}>
+              <div
+                key={idx}
+                onClick={() => setActiveMenu(item.label)}
+                className={`flex items-center space-x-3 py-1 h-[47px] cursor-pointer rounded-lg w-full justify-start pl-2 transition-all duration-300 ease-in-out ${
+                  isActive
+                    ? "bg-[#d4af37] text-black font-semibold transform"
+                    : "hover:bg-gray-400 hover:transform hover:translate-x-2 text-gray-200"
+                }`}
+              >
+                {isActive && (
+                  <div className="h-full w-1 rounded-full bg-black"></div>
+                )}
+                <Icon size={20} />
+                <span className="text-[16px]">{item.label}</span>
+              </div>
+            </Link>
           );
         })}
       </aside>
@@ -155,8 +156,13 @@ export default function Dashboard() {
           </TableHeader>
           <TableBody>
             {filtered.map((o, idx) => (
-              <TableRow key={idx} className="border-t-0 border-b border-gray-700">
-                <TableCell key={idx} className="border-0">{o.name}</TableCell>
+              <TableRow
+                key={idx}
+                className="border-t-0 border-b border-gray-700"
+              >
+                <TableCell key={idx} className="border-0">
+                  {o.name}
+                </TableCell>
                 <TableCell key={idx}>{o.email}</TableCell>
                 <TableCell key={idx}>{o.sunglasses}</TableCell>
                 <TableCell key={idx}>{o.serial}</TableCell>
