@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Calendar1Icon, Glasses, GlassesIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -12,13 +11,13 @@ export default function HomePage() {
   return (
     <div className="flex items-center justify-center bg-black h-screen w-screen">
       <div className="">
-        <p className="font-bold text-4xl text-[#d4af37]">Hello, Alice</p>
+        <p className="font-bold text-4xl text-[#92B917]">Hello, Alice</p>
 
         <div className="flex items-center justify-start space-x-2 mt-4">
-          <button className="border-[#5d5538] cursor-pointer border-[0.5px] rounded bg-[#171714] py-2 px-4 text-[#d4af37] font-[500] text-sm">
+          <button className="border-[#5d5538] cursor-pointer border-[0.5px] rounded bg-[#171714] py-2 px-4 text-[#92B917] font-[500] text-sm">
             APHRODITE
           </button>
-          <button className="border-[#5d5538] cursor-pointer border-[0.5px] bg-[#171714] rounded py-2 px-4 text-[#d4af37] font-[400] text-sm">
+          <button className="border-[#5d5538] cursor-pointer border-[0.5px] bg-[#171714] rounded py-2 px-4 text-[#92B917] font-[400] text-sm">
             View Certificate Ownership
           </button>
         </div>
@@ -37,7 +36,7 @@ export default function HomePage() {
                 <Switch
                   checked={enabled}
                   onCheckedChange={setEnabled}
-                  className="data-[state=checked]:bg-[#d4af37] data-[state=unchecked]:bg-[#5d5538]"
+                  className="data-[state=checked]:bg-[#92B917] data-[state=unchecked]:bg-[#5d5538]"
                 />
               </div>
             </div>
@@ -50,10 +49,10 @@ export default function HomePage() {
                 Upcoming Drops
               </p>
               <div className="flex items-center justify-end w-full">
-                <Calendar1Icon size={50} color="#d4af37" />
+                <Calendar1Icon size={50} color="#92B917" />
               </div>
 
-              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#d4af37] mt-3 text-[#d4af37] font-[700]">
+              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#92B917] mt-3 text-[#92B917] font-[700]">
                 Explore
               </Button>
             </div>
@@ -67,7 +66,7 @@ export default function HomePage() {
                 Tech Guide
               </p>
 
-              {/* <Glasses size={80} color="#d4af37" className="w-full" /> */}
+              {/* <Glasses size={80} color="#92B917" className="w-full" /> */}
               <Image
                 src="/glasses.svg"
                 alt="glass icon"
@@ -75,7 +74,7 @@ export default function HomePage() {
                 width={80}
               />
 
-              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#d4af37] text-[#d4af37] font-[700]">
+              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#92B917] text-[#92B917] font-[700]">
                 View
               </Button>
             </div>
@@ -92,7 +91,7 @@ export default function HomePage() {
                 Curated <br /> recommendations <br /> for your Aphrodite <br />{" "}
                 sunglasses
               </p>
-              <Button className="h-[40px] cursor-pointer mt-4 rounded-lg w-full border border-[#d4af37] text-[#d4af37] font-[700]">
+              <Button className="h-[40px] cursor-pointer mt-4 rounded-lg w-full border border-[#92B917] text-[#92B917] font-[700]">
                 View
               </Button>
             </div>

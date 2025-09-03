@@ -38,18 +38,18 @@ export default function SignInPage() {
   return (
     <main
       className="min-h-screen flex flex-col items-center justify-center font-sans px-6 bg-black relative"
-      style={{
-        backgroundImage: "url('/logo.png')", // put your transparent logo here
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      // style={{
+      //   backgroundImage: "url('/logo.png')",
+      //   backgroundSize: "contain",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      // }}
     >
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black/70" />
 
       {/* Page Content */}
-      <div className="relative z-10 w-full max-w-md rounded-2xl p-8 border-white border-[0.5px] shadow-lg">
+      <div className="relative z-10 w-full max-w-md rounded-2xl p-8 border-[#92B917] border-[0.1px] shadow-lg">
         <h2 className="text-2xl font-semibold mb-8 text-center text-white">
           Sign in to your Portal
         </h2>
@@ -61,7 +61,7 @@ export default function SignInPage() {
               type="email"
               placeholder="Email"
               {...register("email")}
-              className="w-full rounded-md bg-black border border-gray-700 px-4 py-3 text-white focus:outline-none focus:border-[#d4af37] transition"
+              className="w-full rounded-md bg-black border border-gray-700 px-4 py-3 text-white focus:outline-none focus:border-[#92B917] transition"
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">
@@ -76,14 +76,18 @@ export default function SignInPage() {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               {...register("password")}
-              className="w-full rounded-md bg-black border border-gray-700 px-4 py-3 text-white focus:outline-none focus:border-[#d4af37] transition"
+              className="w-full rounded-md bg-black border border-gray-700 px-4 py-3 text-white focus:outline-none focus:border-[#92B917] transition"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-3 text-gray-400 hover:text-white"
+              className="absolute right-3 top-3 text-gray-400 hover:text-white cursor-pointer"
             >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              {showPassword ? (
+                <EyeOff size={20} color="#92B917" />
+              ) : (
+                <Eye size={20} color="#92B917" />
+              )}
             </button>
             {errors.password && (
               <p className="text-red-500 text-sm mt-1">
@@ -96,7 +100,7 @@ export default function SignInPage() {
           <div className="text-right">
             <a
               href="/reset-password"
-              className="text-sm text-[#d4af37] hover:underline"
+              className="text-sm text-[#92B917] hover:underline"
             >
               Forgot Password? <span className="font-[700]">Reset Now</span>
             </a>
@@ -105,14 +109,14 @@ export default function SignInPage() {
           {/* Button */}
           <button
             type="submit"
-            className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-[#d4af37] border border-[#d4af37] hover:bg-[#d4af37] hover:text-black transition"
+            className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-[#92B917] border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
             Sign in
           </button>
 
           <a
             href="/register"
-            className="text-sm text-[#d4af37] hover:underline text-center"
+            className="text-sm text-[#92B917] hover:underline text-center"
           >
             New here?
             <span className="font-[700]"> Register eyewear</span>

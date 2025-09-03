@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { usePDF } from "react-to-pdf";
 import { Download } from "lucide-react";
@@ -24,7 +24,7 @@ const CertificatePage = () => {
         {/* Certificate */}
         <div
           ref={targetRef}
-          className="border border-[#d4af37] rounded-lg p-6 text-center bg-black text-[#d4af37] shadow-md"
+          className="border border-[#92B917] rounded-lg p-6 text-center bg-black text-[#92B917] shadow-md"
         >
           <h3 className="text-3xl font-semibold tracking-wide">CERTIFICATE</h3>
           <p className="text-sm mb-2">OF OWNERSHIP</p>
@@ -39,14 +39,14 @@ const CertificatePage = () => {
           <p className="text-2xl font-bold text-white">30/10/2028</p>
 
           <p className="text-gray-400 mt-3 cursor-pointer">Serial Numbr</p>
-          <p className="font-semibold text-[#d4af37]">ZE/23450</p>
+          <p className="font-semibold text-[#92B917]">ZE/23450</p>
 
           {/* Optional Logo */}
           <div className="mt-2 flex justify-end">
             <Image src="/logo.png" alt="business logo" height={80} width={80} />
           </div>
 
-          <p className="font-semibold text-[#d4af37] text-sm">
+          <p className="font-semibold text-[#92B917] text-sm">
             This certificate confirms your exclusive ownership of this piece of
             the Shaded Goddess legacy. Authentication verified via NFC Owner’s
             Portal.
@@ -58,7 +58,7 @@ const CertificatePage = () => {
             console.log("Generating PDF...");
             toPDF();
           }}
-          className="mt-4 h-[50px] !cursor-pointer w-full border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-black"
+          className="mt-4 h-[50px] !cursor-pointer w-full border border-[#92B917] text-[#92B917] hover:bg-[#92B917] hover:text-black"
         >
           <Download size={20} /> Share / Download Certificate
         </Button>
