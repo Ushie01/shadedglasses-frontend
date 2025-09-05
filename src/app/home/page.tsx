@@ -52,7 +52,7 @@ export default function HomePage() {
                 <Calendar1Icon size={50} color="#92B917" />
               </div>
 
-              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#92B917] mt-3 text-[#92B917] font-[700]">
+              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#92B917] mt-3 text-white font-[700]">
                 Explore
               </Button>
             </div>
@@ -74,7 +74,7 @@ export default function HomePage() {
                 width={80}
               />
 
-              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#92B917] text-[#92B917] font-[700]">
+              <Button className="h-[40px] cursor-pointer rounded-lg w-full border border-[#92B917] text-white font-[700]">
                 View
               </Button>
             </div>
@@ -91,7 +91,7 @@ export default function HomePage() {
                 Curated <br /> recommendations <br /> for your Aphrodite <br />{" "}
                 sunglasses
               </p>
-              <Button className="h-[40px] cursor-pointer mt-4 rounded-lg w-full border border-[#92B917] text-[#92B917] font-[700]">
+              <Button className="h-[40px] cursor-pointer mt-4 rounded-lg w-full border border-[#92B917] text-white font-[700]">
                 View
               </Button>
             </div>

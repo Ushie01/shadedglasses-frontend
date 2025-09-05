@@ -46,7 +46,7 @@ export default function ResetPasswordPage() {
 
       {/* Page Content */}
       <div className="relative z-10 w-full max-w-md rounded-2xl p-8 border-[#92B917] border-[0.5px] shadow-lg">
-        <h2 className="text-2xl font-semibold mb-8 text-center text-[#92B917]">
+        <h2 className="text-2xl font-semibold mb-8 text-center text-white">
           Forgot Password Page
         </h2>
 
@@ -70,7 +70,7 @@ export default function ResetPasswordPage() {
           <div className="text-right">
             <a
               href="/reset-password"
-              className="text-sm text-[#92B917] hover:underline"
+              className="text-sm text-white hover:underline"
             >
               Forgot Password? <span className="font-[700]">Reset Now</span>
             </a>
@@ -79,14 +79,14 @@ export default function ResetPasswordPage() {
           {/* Button */}
           <button
             type="submit"
-            className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-[#92B917] border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
+            className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-white border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
             Send Password Reset Link
           </button>
 
           <a
             href="/sign-in"
-            className="text-sm text-[#92B917] hover:underline text-center"
+            className="text-sm text-white hover:underline text-center"
           >
             Remembered your password?
             <span className="font-[700]"> Login to your account</span>

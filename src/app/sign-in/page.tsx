@@ -32,7 +32,7 @@ export default function SignInPage() {
     console.log("Sign-in Data:", data);
     // Here you would typically authenticate the user
     // For now, we'll just navigate to the dashboard
-    router.push("/dashboard");
+    router.push("/user/dashboard");
   };
 
   return (
@@ -100,7 +100,7 @@ export default function SignInPage() {
           <div className="text-right">
             <a
               href="/reset-password"
-              className="text-sm text-[#92B917] hover:underline"
+              className="text-sm text-white hover:underline"
             >
               Forgot Password? <span className="font-[700]">Reset Now</span>
             </a>
@@ -109,14 +109,14 @@ export default function SignInPage() {
           {/* Button */}
           <button
             type="submit"
-            className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-[#92B917] border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
+            className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-white border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
             Sign in
           </button>
 
           <a
             href="/register"
-            className="text-sm text-[#92B917] hover:underline text-center"
+            className="text-sm hover:underline text-center text-white"
           >
             New here?
             <span className="font-[700]"> Register eyewear</span>

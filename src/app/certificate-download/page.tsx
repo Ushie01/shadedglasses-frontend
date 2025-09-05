@@ -46,7 +46,7 @@ const CertificatePage = () => {
             <Image src="/logo.png" alt="business logo" height={80} width={80} />
           </div>
 
-          <p className="font-semibold text-[#92B917] text-sm">
+          <p className="font-semibold text-white text-sm">
             This certificate confirms your exclusive ownership of this piece of
             the Shaded Goddess legacy. Authentication verified via NFC Owner’s
             Portal.
@@ -58,7 +58,7 @@ const CertificatePage = () => {
             console.log("Generating PDF...");
             toPDF();
           }}
-          className="mt-4 h-[50px] !cursor-pointer w-full border border-[#92B917] text-[#92B917] hover:bg-[#92B917] hover:text-black"
+          className="mt-4 h-[50px] !cursor-pointer w-full border border-[#92B917] text-white hover:bg-[#92B917] hover:text-black"
         >
           <Download size={20} /> Share / Download Certificate
         </Button>

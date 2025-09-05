@@ -10,9 +10,10 @@ export default function Home() {
           alt="Shaded Goddess Logo"
           width={60}
           height={60}
+          sizes="100"
           className="h-36 w-36"
         />
-        <p className="mt-4 text-sm tracking-widest text-[#92B917]">
+        <p className="mt-4 text-sm tracking-widest text-white">
           it’s power, mystery, and allure redefined. Each frame is a <br />{" "}
           crown for those who command attention without asking for it. Designed
           with precision, <br /> crafted with intention, and worn by those who
@@ -30,7 +31,7 @@ export default function Home() {
         <a href="/register">
           <button className="relative w-full py-3 rounded-lg text-[#92B917] border-[d4af37] border cursor-pointer overflow-hidden">
             <span className="absolute inset-0 rounded-lg border-[1px] border-[#92B917] animate-borderMove"></span>
-            <span className="relative block rounded-lg bg-black px-6 py-2">
+            <span className="relative block rounded-lg bg-black px-6 py-2 text-white">
               Register Eyewear
             </span>
           </button>
@@ -39,7 +40,7 @@ export default function Home() {
         <a href="/sign-in">
           <button className="relative w-full py-3 rounded-lg border-[d4af37] text-[#92B917] border cursor-pointer overflow-hidden">
             <span className="absolute inset-0 rounded-lg border-[1px] border-[#92B917] animate-borderMove"></span>
-            <span className="relative block rounded-lg bg-black px-6 py-2">
+            <span className="relative block rounded-lg bg-black px-6 py-2 text-white">
               Sign In
             </span>
           </button>

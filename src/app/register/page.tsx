@@ -51,7 +51,7 @@ export default function RegisterPage() {
       //   backgroundImage: "url('/logo.png')",
       //   backgroundSize: "contain",
       //   backgroundPosition: "center",
-      //   backgroundRepeat: "no-repeat",
+      //   backgroundRepeat: "no-rep eat",
       // }}
     >
       {/* Overlay for readability */}
@@ -59,7 +59,7 @@ export default function RegisterPage() {
 
       {/* Page Content */}
       <div className="relative z-10 w-full max-w-md rounded-2xl p-8 border border-[#92B917] shadow-lg">
-        <h2 className="text-2xl font-semibold mb-8 text-center text-[#92B917]">
+        <h2 className="text-2xl font-semibold mb-8 text-center text-white">
           Register Eyewear
         </h2>
 
@@ -182,7 +182,7 @@ export default function RegisterPage() {
           <div className="text-right">
             <a
               href="/reset-password"
-              className="text-sm text-[#92B917] hover:underline"
+              className="text-sm text-white hover:underline"
             >
               Forgot Password?
             </a>
@@ -191,14 +191,14 @@ export default function RegisterPage() {
           {/* Button */}
           <button
             type="submit"
-            className="relative w-full py-3 mt-2 rounded-lg text-[#92B917] border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
+            className="relative w-full py-3 mt-2 rounded-lg text-white border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
             Register Ownership
           </button>
 
           <a
             href="/sign-in"
-            className="text-sm text-[#92B917] hover:underline text-center"
+            className="text-sm text-white hover:underline text-center"
           >
             Already a member?
             <span className="font-[700]"> Sign in</span>
