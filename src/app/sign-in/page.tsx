@@ -51,7 +51,7 @@ export default function SignInPage() {
       {/* Page Content */}
       <div className="relative z-10 w-full max-w-md rounded-2xl p-8 border-[#92B917] border-[0.1px] shadow-lg">
         <h2 className="text-2xl font-semibold mb-8 text-center text-white">
-          Sign in to your Portal
+          Sign in to your portal
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">

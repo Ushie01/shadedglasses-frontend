@@ -13,6 +13,9 @@ export default function Home() {
           sizes="100"
           className="h-36 w-36"
         />
+        <p className="text-2xl font-bold mt-4">
+          Shaded Goddess is not just eyewear
+        </p>
         <p className="mt-4 text-sm tracking-widest text-white">
           it’s power, mystery, and allure redefined. Each frame is a <br />{" "}
           crown for those who command attention without asking for it. Designed
