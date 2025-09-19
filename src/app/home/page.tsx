@@ -2,24 +2,33 @@
 import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { Calendar, Calendar1Icon, Glasses, GlassesIcon } from "lucide-react";
+import { Calendar1Icon } from "lucide-react";
 import Image from "next/image";
+import { useUser } from "@/hooks/useUser";
+import { useGetUserProfile } from "@/api/user";
+import Link from "next/link";
 
 export default function HomePage() {
   const [enabled, setEnabled] = useState(false);
+  const { user } = useUser();
+  const { data: userProfile } = useGetUserProfile(user?.id || "");
 
   return (
     <div className="flex items-center justify-center bg-black h-screen w-screen">
       <div className="">
-        <p className="font-bold text-4xl text-[#92B917]">Hello, Alice</p>
+        <p className="font-bold text-4xl text-[#92B917]">
+          Hello, {userProfile?.owner?.fullName || "Guest"}
+        </p>
 
         <div className="flex items-center justify-start space-x-2 mt-4">
-          <button className="border-[#5d5538] cursor-pointer border-[0.5px] rounded bg-[#171714] py-2 px-4 text-[#92B917] font-[500] text-sm">
+          {/* <button className="border-[#5d5538] cursor-pointer border-[0.5px] rounded bg-[#171714] py-2 px-4 text-[#92B917] font-[500] text-sm">
             APHRODITE
-          </button>
-          <button className="border-[#5d5538] cursor-pointer border-[0.5px] bg-[#171714] rounded py-2 px-4 text-[#92B917] font-[400] text-sm">
-            View Certificate Ownership
-          </button>
+          </button> */}
+          <Link href="/certificate-download">
+            <button className="border-[#5d5538] cursor-pointer border-[0.5px] bg-[#171714] rounded py-2 px-4 text-[#92B917] font-[400] text-sm">
+              View Certificate Ownership
+            </button>
+          </Link>
         </div>
 
         <div className="flex w-full p-4 border-[#5d5538] border-[0.5px] rounded-lg mt-4 gap-2 bg-[#171714]">

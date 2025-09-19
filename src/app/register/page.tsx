@@ -6,6 +6,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useSignUp } from "@/api/auth";
+import { toast } from "sonner";
 
 // Schema
 const formSchema = z
@@ -38,10 +40,32 @@ export default function RegisterPage() {
   // Define the type based on our schema
   type RegisterFormData = z.infer<typeof formSchema>;
 
+  const { mutate, isPending } = useSignUp();
   const onSubmit = (data: RegisterFormData) => {
     console.log("Form Data:", data);
-    alert("Registration successful!");
-    router.push("/sign-in");
+
+    // Remove confirmPassword from the data before sending to API
+    const payload = {
+      fullName: data.name,
+      model: data.model,
+      serialNumber: data.serial,
+      email: data.email,
+      password: data.password,
+      role: "USER",
+    };
+
+    console.log(payload, "payload");
+
+    mutate(payload, {
+      onSuccess: (response) => {
+        toast.success("Registration successful");
+        router.push("/sign-in");
+      },
+      onError: (err: any) => {
+        toast.error(err?.response?.data?.message || "Registration failed");
+        console.error("Registration failed:", err);
+      },
+    });
   };
 
   return (
@@ -99,10 +123,10 @@ export default function RegisterPage() {
               className="w-full rounded-md bg-black border border-gray-700 px-4 py-3 text-gray-400 focus:outline-none focus:border-[#92B917] transition"
             >
               <option value="">Sunglasses Model</option>
-              <option value="zhandra">Zhandra</option>
-              <option value="aphrodite">Aphrodite</option>
-              <option value="callisto">Callisto</option>
-              <option value="elysian">Elysian</option>
+              <option value="Zhandra">Zhandra</option>
+              <option value="Aphrodite">Aphrodite</option>
+              <option value="Callisto">Callisto</option>
+              <option value="Elysian">Elysian</option>
             </select>
             {errors.model && (
               <p className="text-red-500 text-sm mt-1">

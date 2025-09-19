@@ -6,6 +6,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useSignIn } from "@/api/auth";
+import { toast } from "sonner";
+import { handleApiError } from "@/lib/utils";
 
 // Schema
 const formSchema = z.object({
@@ -28,13 +31,27 @@ export default function SignInPage() {
   // Define the type based on our schema
   type SignInFormData = z.infer<typeof formSchema>;
 
-  const onSubmit = (data: SignInFormData) => {
-    console.log("Sign-in Data:", data);
-    // Here you would typically authenticate the user
-    // For now, we'll just navigate to the dashboard
-    router.push("/user/dashboard");
-  };
+  const { mutate, isPending, error } = useSignIn();
 
+  const onSubmit = (data: SignInFormData) => {
+    mutate(data, {
+      onSuccess: (response) => {
+        console.log("Login success:", response);
+
+        // Save user data and tokens to localStorage
+        if (response?.data) {
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          localStorage.setItem("tokens", JSON.stringify(response.data.tokens));
+        }
+
+        toast.success(response?.message || "Login successful");
+        router.push("/home");
+      },
+      onError: (err: any) => {
+        handleApiError(err);
+      },
+    });
+  };
   return (
     <main
       className="min-h-screen flex flex-col items-center justify-center font-sans px-6 bg-black relative"

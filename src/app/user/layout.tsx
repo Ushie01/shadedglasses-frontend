@@ -22,6 +22,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import LogoutButton from "@/components/LogoutButton";
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
   const [activeMenu, setActiveMenu] = useState("Dashboard");
@@ -40,6 +41,11 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
       label: "Owners",
       icon: User,
       link: "/user/owner",
+    },
+    {
+      label: "Profile",
+      icon: User,
+      link: "/user/profile",
     },
     {
       label: "Sunglasses",
@@ -109,9 +115,12 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
 
       {/* Main Content */}
       <main className="flex-1 p-8">
-        <h1 className="text-4xl font-bold mb-6 mt-20 capitalize">
-          {currentPage}
-        </h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-4xl font-bold mb-6 mt-20 capitalize">
+            {currentPage}
+          </h1>
+          <LogoutButton />
+        </div>
         {/* Search + Export */}
         {children}
       </main>

@@ -11,9 +11,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useUser } from "@/hooks/useUser";
 
 export default function Dashboard() {
   const [search, setSearch] = useState("");
+  const { user, isAuthenticated } = useUser();
 
   const owners = [
     {
@@ -52,6 +54,15 @@ export default function Dashboard() {
 
   return (
     <main className="flex-1">
+      {isAuthenticated && (
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold text-[#92B917]">
+            Welcome, {user?.name || "User"}
+          </h2>
+          <p className="text-gray-400">{user?.email}</p>
+        </div>
+      )}
+
       {/* Search + Export */}
       <div className="flex items-center gap-4 mb-6 bg-[#1c1c1c] p-2 rounded-lg mt-[43px]">
         <Input
