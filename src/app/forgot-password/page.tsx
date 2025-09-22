@@ -6,16 +6,19 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useForgotPassword } from "@/api/auth";
+import { handleApiError } from "@/lib/utils";
+import { toast } from "sonner";
 
 // Schema
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-export default function ResetPasswordPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+export default function ForgotPasswordPage() {
   const router = useRouter();
+
+  const { mutate, isPending } = useForgotPassword();
 
   const {
     register,
@@ -26,9 +29,21 @@ export default function ResetPasswordPage() {
   });
 
   const onSubmit = (data: any) => {
-    console.log("Form Data:", data);
-    alert("Password reset link sent!");
-    router.push("/sign-in");
+    // console.log("Form Data:", data);
+
+    mutate(
+      { email: data.email },
+      {
+        onSuccess: (response) => {
+          toast?.success(response?.message);
+          router.push("/confirm-password-otp");
+        },
+        onError: (err) => {
+          handleApiError(err);
+          toast?.error(err?.message);
+        },
+      }
+    );
   };
 
   return (
@@ -81,7 +96,7 @@ export default function ResetPasswordPage() {
             type="submit"
             className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-white border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
-            Send Password Reset Link
+            {isPending ? "Sending..." : "Send Password Reset Link"}
           </button>
 
           <a

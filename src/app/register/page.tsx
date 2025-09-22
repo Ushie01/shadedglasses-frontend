@@ -54,12 +54,10 @@ export default function RegisterPage() {
       role: "USER",
     };
 
-    console.log(payload, "payload");
-
     mutate(payload, {
       onSuccess: (response) => {
         toast.success("Registration successful");
-        router.push("/sign-in");
+        router.push("/verify-email");
       },
       onError: (err: any) => {
         toast.error(err?.response?.data?.message || "Registration failed");
@@ -69,15 +67,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <main
-      className="min-h-screen flex flex-col items-center justify-center font-sans px-6 bg-black relative"
-      // style={{
-      //   backgroundImage: "url('/logo.png')",
-      //   backgroundSize: "contain",
-      //   backgroundPosition: "center",
-      //   backgroundRepeat: "no-rep eat",
-      // }}
-    >
+    <main className="min-h-screen flex flex-col items-center justify-center font-sans px-6 bg-black relative">
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black/70" />
 
@@ -203,21 +193,21 @@ export default function RegisterPage() {
           </div>
 
           {/* Forgot Password */}
-          <div className="text-right">
+          {/* <div className="text-right">
             <a
               href="/reset-password"
               className="text-sm text-white hover:underline"
             >
               Forgot Password?
             </a>
-          </div>
+          </div> */}
 
           {/* Button */}
           <button
             type="submit"
             className="relative w-full py-3 mt-2 rounded-lg text-white border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
-            Register Ownership
+            {isPending ? "Registering..." : "Register Ownership"}
           </button>
 
           <a

@@ -49,6 +49,9 @@ export default function SignInPage() {
       },
       onError: (err: any) => {
         handleApiError(err);
+
+        console.log(err, "err");
+        toast.error(err?.response?.data?.message || "Login failed");
       },
     });
   };
@@ -116,7 +119,7 @@ export default function SignInPage() {
           {/* Forgot Password */}
           <div className="text-right">
             <a
-              href="/reset-password"
+              href="/forgot-password"
               className="text-sm text-white hover:underline"
             >
               Forgot Password? <span className="font-[700]">Reset Now</span>
@@ -128,7 +131,7 @@ export default function SignInPage() {
             type="submit"
             className="relative w-full py-3 mt-2 cursor-pointer rounded-lg text-white border border-[#92B917] hover:bg-[#92B917] hover:text-black transition"
           >
-            Sign in
+            {isPending ? "Signing in..." : "Sign in"}
           </button>
 
           <a
